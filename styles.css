@@ -1,4 +1,8 @@
 #wrapper {
-	height:500px;
+	height:650px;
 	width:1300px;
+}
+#center {
+	margin:-2px auto;
+	height:740px;
 }
