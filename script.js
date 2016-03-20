@@ -1,8 +1,17 @@
 $(document).ready(function() {
-	for(var j=0;j<16;j++)
+	createGrid(16);
+
+	$('.square').hover(function() {
+		$(this).css('background-color','#454141');
+	});
+	
+});
+
+var createGrid = function (squares) {
+	for(var j=0;j<squares;j++)
 	{
 		var lastRow;
-		if(j===15)
+		if(j===squares-1)
 		{
 			lastRow = true;
 		}
@@ -12,7 +21,7 @@ $(document).ready(function() {
 		}
 		if(!lastRow)
 		{
-			for(var i=0;i<15;i++)
+			for(var i=0;i<squares;i++)
 			{
 				$('#center').append('<div class="square"></div>');
 			}
@@ -20,7 +29,7 @@ $(document).ready(function() {
 		}
 		else
 		{
-			for(var i=0;i<15;i++)
+			for(var i=0;i<squares;i++)
 			{
 				$('#center').append('<div class="square lastRow"></div>');
 			}
@@ -28,7 +37,7 @@ $(document).ready(function() {
 		}
 	}
 
-	var sqSide = 650/16
+	var sqSide = 650/squares
 
 	$('#center').width('747px');
 	$('.square').css('border','solid');
@@ -38,5 +47,4 @@ $(document).ready(function() {
 	$('.square').height(sqSide);
 	$('.lastCol').css('margin-left','-1px');
 	$('.lastRow').css('margin-top','-6px');
-	
-});
+}
