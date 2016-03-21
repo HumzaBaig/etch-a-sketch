@@ -1,8 +1,10 @@
 $(document).ready(function() {
 	createGrid(16);
 
-	$('.square').hover(function() {
-		$(this).css('background-color','#454141');
+	$('input').click(function() {
+		$('.square').css('background-color','white');
+		var squares = prompt("How many rows of squares would you like?");
+		createGrid(squares);
 	});
 	
 });
@@ -37,9 +39,9 @@ var createGrid = function (squares) {
 		}
 	}
 
-	var sqSide = 650/squares
+	var sqSide = 850/squares
 
-	$('#center').width('747px');
+	$('#center').width('960px');
 	$('.square').css('border','solid');
 	$('.square').css('margin-top','-4px');
 	$('.square').css('display','inline-block');
@@ -47,4 +49,8 @@ var createGrid = function (squares) {
 	$('.square').height(sqSide);
 	$('.lastCol').css('margin-left','-1px');
 	$('.lastRow').css('margin-top','-6px');
+
+	$('.square').hover(function() {
+		$(this).css('background-color','#454141');
+	});
 }
