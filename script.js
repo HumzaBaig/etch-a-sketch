@@ -2,53 +2,40 @@ $(document).ready(function() {
 	createGrid(16);
 
 	$('input').click(function() {
-		$('.square').css('background-color','white');
-		var squares = prompt("How many rows of squares would you like?");
-		createGrid(squares);
+		/*$('.square').css('background-color','white');*/
+		var $sq = prompt("How many rows of squares would you like?");
+		createGrid($sq);
 	});
 	
 });
 
 var createGrid = function (squares) {
+	$('#center').remove();
+	$('<table id="center"></table>').appendTo('#wrapper')
+	$('#center').css('margin-top','0px');
+	$('#center').css('margin-left','auto');
+	$('#center').width('960px');
+	$('#center').height('960px');
 	for(var j=0;j<squares;j++)
 	{
-		var lastRow;
-		if(j===squares-1)
-		{
-			lastRow = true;
-		}
-		else
-		{
-			lastRow = false;
-		}
-		if(!lastRow)
-		{
-			for(var i=0;i<squares;i++)
-			{
-				$('#center').append('<div class="square"></div>');
-			}
-			$('#center').append('<div class="square lastCol"></div>');
-		}
-		else
-		{
-			for(var i=0;i<squares;i++)
-			{
-				$('#center').append('<div class="square lastRow"></div>');
-			}
-			$('#center').append('<div class="square lastRow lastCol"></div>');
-		}
+		$('<tr class="Row"></tr>').appendTo('#center');
+	}
+	for(var i=0;i<squares;i++)
+	{
+		$('.Row').append('<td><div class="square"></div></td>');
 	}
 
-	var sqSide = 850/squares
+	var sqSide = 800/squares
 
-	$('#center').width('960px');
 	$('.square').css('border','solid');
-	$('.square').css('margin-top','-4px');
-	$('.square').css('display','inline-block');
+	$('.square').css('margin','0px');
+	$('.square').css('padding','0px');
+	$('<td>').css('margin','0px');
+	$('<td>').css('padding','0px');
+	$('.Row').css('margin','0px');
+	$('.Row').css('padding','0px');
 	$('.square').width(sqSide);
 	$('.square').height(sqSide);
-	$('.lastCol').css('margin-left','-1px');
-	$('.lastRow').css('margin-top','-6px');
 
 	$('.square').hover(function() {
 		$(this).css('background-color','#454141');

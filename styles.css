@@ -1,11 +1,7 @@
 #wrapper {
-	height:960px;
+	height:1300px;
 	width:1300px;
 	margin-top:25px;
-}
-#center {
-	margin:0px auto;
-	height:960px;
 }
 form {
 	margin: 25px 600px;
